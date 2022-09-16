@@ -1,13 +1,12 @@
+import 'package:flutter/material.dart';
 import 'dart:ui';
 
-import 'package:flutter/material.dart';
-
-class PopUpMenuCancel extends StatelessWidget {
-  const PopUpMenuCancel({Key? key}) : super(key: key);
+class PopUpMenuAdded extends StatelessWidget {
+  const PopUpMenuAdded({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return  Center(
       child: SizedBox(
         height: 467,
         child: BackdropFilter(
@@ -35,29 +34,19 @@ class PopUpMenuCancel extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset('assets/images/cancel_vector.png', width: 190,),
+                      Image.asset('assets/images/success_vector.png', width: 190,),
                       SizedBox(height: 20),
                       Container(
                         width: double.infinity,
-                        child: Text('Недостаточно средств',textAlign: TextAlign.center, style:
+                        child: Text('Товары добавлены в склад',textAlign: TextAlign.center, style:
                         TextStyle(
                             fontSize: 28,
-                            color: Color(0xFFFF0606),
+                            color: Color(0xFF4CAF50),
                             fontWeight: FontWeight.bold
                         ),
                         ),
                       ),
                       SizedBox(height: 35),
-                      SizedBox(
-                          height: 42,
-                          width: 255,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            primary: Color(0xFFCDD5E1)
-                          ),
-                            onPressed: (){},
-                            child: Text('Выдать чек')),
-                      )
                     ],
                   ),
                 )

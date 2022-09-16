@@ -1,9 +1,7 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-
-class PopUpMenuCancel extends StatelessWidget {
-  const PopUpMenuCancel({Key? key}) : super(key: key);
+import 'dart:ui';
+class PopUpMenuNotEnoughResources extends StatelessWidget {
+  const PopUpMenuNotEnoughResources({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +37,7 @@ class PopUpMenuCancel extends StatelessWidget {
                       SizedBox(height: 20),
                       Container(
                         width: double.infinity,
-                        child: Text('Недостаточно средств',textAlign: TextAlign.center, style:
+                        child: Text('Недостаточно товаров',textAlign: TextAlign.center, style:
                         TextStyle(
                             fontSize: 28,
                             color: Color(0xFFFF0606),
@@ -49,14 +47,14 @@ class PopUpMenuCancel extends StatelessWidget {
                       ),
                       SizedBox(height: 35),
                       SizedBox(
-                          height: 42,
-                          width: 255,
+                        height: 42,
+                        width: 255,
                         child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            primary: Color(0xFFCDD5E1)
-                          ),
+                            style: ElevatedButton.styleFrom(
+                                primary: Color(0xFF33C9DD)
+                            ),
                             onPressed: (){},
-                            child: Text('Выдать чек')),
+                            child: Text('Сообщить о проблеме')),
                       )
                     ],
                   ),

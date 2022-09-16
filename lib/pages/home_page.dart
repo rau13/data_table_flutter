@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:table_widget/widgets/data_table.dart';
-import 'package:table_widget/widgets/footer.dart';
-import 'package:table_widget/widgets/pop_up_menu.dart';
 import 'package:table_widget/widgets/pop_up_menu_cancel.dart';
+import 'package:table_widget/widgets/pop_up_menu_notenough.dart';
+import 'package:table_widget/widgets/pop_up_menu_resources_added.dart';
+import 'package:table_widget/widgets/pop_up_menu_success.dart';
+
+
+
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PopUpMenuCancel()
+      body: PopUpMenuAdded()
     );
   }
 }
