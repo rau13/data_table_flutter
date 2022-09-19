@@ -20,8 +20,9 @@ class MyDataTable extends StatelessWidget {
     ];
   }
   List<DataRow> _createRows() {
+
     return [
-      DataRow(
+      DataRow.byIndex(
           cells: [
             DataCell(Text('12346789')),
             DataCell(VerticalDivider(thickness: 2)),
@@ -128,6 +129,8 @@ class MyDataTable extends StatelessWidget {
       ]),
     ];
   }
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
