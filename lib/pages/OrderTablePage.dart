@@ -36,7 +36,7 @@ class _OrderTablePageState extends State<OrderTablePage> {
                           fontWeight: FontWeight.bold
                       ),)),
                 ),
-                Image.asset('assets/images/logo.png', alignment: Alignment.centerRight,),
+                Expanded(child: Image.asset('assets/images/logo.png', alignment: Alignment.centerRight,)),
 
               ],
             ),

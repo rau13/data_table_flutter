@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:table_widget/pages/OrderTablePage.dart';
+import 'package:table_widget/pages/orders_page.dart';
 import 'package:table_widget/widgets/orders_card.dart';
 import 'package:table_widget/widgets/orders_history_table.dart';
 import 'package:table_widget/widgets/pop_up_menu_cancel.dart';
@@ -21,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: OrdersHistoryTable()
+      body: OrdersPage()
     );
   }
 }

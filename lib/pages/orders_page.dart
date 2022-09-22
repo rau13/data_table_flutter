@@ -10,6 +10,14 @@ class OrdersPage extends StatefulWidget {
 }
 
 class _OrdersPageState extends State<OrdersPage> {
+  String _dropdownValue = "Неделя";
+  void dropdownCallback(String? selectedValue){
+    if(selectedValue is String){
+      setState(() {
+        _dropdownValue = selectedValue;
+      });
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,6 +31,8 @@ class _OrdersPageState extends State<OrdersPage> {
               height: 75,
               child: Container(
                 child: Row(
+
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
                       width: 250,
@@ -33,10 +43,73 @@ class _OrdersPageState extends State<OrdersPage> {
                           ),
                           child: Text('Главная страница', style: TextStyle(
                             fontWeight: FontWeight.bold
-                          ),)),
+                          ))),
                     ),
                       Image.asset('assets/images/logo.png', alignment: Alignment.centerRight,),
-
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Row(
+                              children: [
+                                Text('Промежуток '),
+                                SizedBox(width: 45,),
+                                Container(
+                                  height: 30,
+                                    width: 100,
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: Color(0xFFA4A5A9)
+                                      ),
+                                      borderRadius: BorderRadius.circular(5)
+                                    ),
+                                    child: DropdownButton(
+                                      items: const [
+                                        DropdownMenuItem(child: Text('Неделя'), value: 'Неделя'),
+                                        DropdownMenuItem(child: Text('Месяц'), value: 'Месяц',),
+                                        DropdownMenuItem(child: Text('Год'), value: 'Год',)
+                                      ],
+                                      value: _dropdownValue,
+                                      onChanged: dropdownCallback,
+                                    )
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text('Дата'),
+                                Container(
+                                  width: 100,
+                                  height: 25  ,
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(5)
+                                      )
+                                    ),
+                                  ),
+                                ),
+                               SizedBox(
+                                 width: 15,
+                                 child: Divider(height: 45, thickness: 1.5,color: Color(0xFFA4A5A9),)),
+                                Container(
+                                  width: 100,
+                                  height: 25  ,
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(5)
+                                        )
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      )
                   ],
                 ),
               ),
