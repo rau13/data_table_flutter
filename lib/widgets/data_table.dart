@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:table_widget/classes/Order.dart';
+import 'package:table_widget/databases/table_databases.dart';
 
 class MyDataTable extends StatelessWidget {
   const MyDataTable({Key? key}) : super(key: key);
@@ -19,120 +21,13 @@ class MyDataTable extends StatelessWidget {
 
     ];
   }
-  List<DataRow> _createRows() {
 
-    return [
-      DataRow.byIndex(
-          cells: [
-            DataCell(Text('12346789')),
-            DataCell(VerticalDivider(thickness: 2)),
-            DataCell(Text('Конфеты Ferrero Rocher 200г')),
-            DataCell(VerticalDivider(thickness: 2)),
-            DataCell( Text('шт')),
-            DataCell(VerticalDivider(thickness: 2)),
-            DataCell(Center(child: Text('3'))),
-            DataCell(VerticalDivider(thickness: 2)),
-            DataCell(Text('23 455')),
-            DataCell(VerticalDivider(thickness: 2)),
-            DataCell(Text('70 365'))
-          ]),
-      DataRow(cells: [
-        DataCell(Text('12346789')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('Конфеты Ferrero Rocher 200г')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('шт')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Center(child: Text('3'))),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('23 455')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('70 365'))
-      ]),
-      DataRow(cells: [
-        DataCell(Text('12346789')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('Конфеты Ferrero Rocher 200г')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('шт')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Center(child: Text('3'))),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('23 455')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('70 365'))
-      ]),
-      DataRow(cells: [
-        DataCell(Text('12346789')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('Конфеты Ferrero Rocher 200г')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('шт')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Center(child: Text('3'))),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('23 455')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('70 365'))
-      ]),
-      DataRow(cells: [
-        DataCell(Text('12346789')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('Конфеты Ferrero Rocher 200г')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('шт')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Center(child: Text('3'))),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('23 455')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('70 365'))
-      ]),
-      DataRow(cells: [
-        DataCell(Text('12346789')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('Конфеты Ferrero Rocher 200г')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('шт')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Center(child: Text('3'))),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('23 455')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('70 365'))
-      ]),
-      DataRow(cells: [
-        DataCell(Text('12346789')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('Конфеты Ferrero Rocher 200г')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('шт')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Center(child: Text('3'))),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('23 455')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('70 365'))
-      ]),
-      DataRow(cells: [
-        DataCell(Text('12346789')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('Конфеты Ferrero Rocher 200г')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('шт')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Center(child: Text('3'))),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('23 455')),
-        DataCell(VerticalDivider(thickness: 2)),
-        DataCell(Text('70 365'))
-      ]),
-    ];
-  }
 
 
   @override
   Widget build(BuildContext context) {
+    Orders orders = Orders();
+    List<Order> orders_list = orders.orders;
     return Container(
       margin: EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -140,20 +35,33 @@ class MyDataTable extends StatelessWidget {
           color: Colors.black
         ),
       ),
-      child: DataTable(
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: DataTable(
+            headingTextStyle: TextStyle(color: Colors.white),
+            showBottomBorder: true,
+            dividerThickness: 2,
 
-        columnSpacing: 10,
-        headingRowHeight: 30,
-        columns: _createColumns(),
-        rows: _createRows(),
-        headingTextStyle: TextStyle(color: Colors.white),
-        showBottomBorder: true,
-        dividerThickness: 2,
-
-        headingRowColor: MaterialStateProperty.resolveWith((states) => Colors.black),
-      ),
+            headingRowColor: MaterialStateProperty.resolveWith((states) => Colors.black),
+          columnSpacing: 10,
+          headingRowHeight: 30,
+          columns: _createColumns(),
+          rows: orders_list.map<DataRow>((order) => DataRow(cells: [
+            DataCell(Text(order.barCode.toString())),
+            DataCell(VerticalDivider(thickness: 2)),
+            DataCell(Text(order.product.toString())),
+            DataCell(VerticalDivider(thickness: 2)),
+            DataCell(Text(order.unit.toString())),
+            DataCell(VerticalDivider(thickness: 2)),
+            DataCell(Center(child: Text(order.amount.toString()))),
+            DataCell(VerticalDivider(thickness: 2)),
+            DataCell(Text(order.priceForOne.toString())),
+            DataCell(VerticalDivider(thickness: 2)),
+            DataCell(Text(order.sum.toString()))
+          ])).toList()
+        ),
+      )
     );
-    
   }
 }
 
